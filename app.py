@@ -28,7 +28,7 @@ jwt = JWTManager(app)  # /auth
 def add_claims_to_jwt(identity):
     if identity == 1:  # Instead of hard-coding, you should read from a config file or a database
         return {'is_admin': True}
-    return {'is_admin', False}
+    return {'is_admin': False}
 
 api.add_resource(Store, '/store/<string:name>')
 api.add_resource(StoreList, '/stores')
