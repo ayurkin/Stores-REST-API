@@ -30,7 +30,7 @@ def add_claims_to_jwt(identity):
     return {'is_admin': False}
 
 
-@jwt.expired_token_loader()
+@jwt.expired_token_loader
 def expired_token_callback():
     return jsonify(
         {
@@ -40,7 +40,7 @@ def expired_token_callback():
     ), 401
 
 
-@jwt.invalid_token_loader()
+@jwt.invalid_token_loader
 def invalid_token_callback(error):
     return jsonify(
         {
@@ -50,7 +50,7 @@ def invalid_token_callback(error):
     ), 401
 
 
-@jwt.unauthorized_loader()
+@jwt.unauthorized_loader
 def missing_token_callback(error):
     return jsonify(
         {
@@ -60,7 +60,7 @@ def missing_token_callback(error):
     ), 401
 
 
-@jwt.needs_fresh_token_loader()
+@jwt.needs_fresh_token_loader
 def token_not_fresh_callback():
     return jsonify(
         {
@@ -70,7 +70,7 @@ def token_not_fresh_callback():
     ), 401
 
 
-@jwt.revoked_token_loader()
+@jwt.revoked_token_loader
 def revoked_token_callback():
     return jsonify(
         {
